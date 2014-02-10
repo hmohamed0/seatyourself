@@ -1,6 +1,13 @@
 Seatyourself::Application.routes.draw do
-  resources :restaurants
-  resources :users
+  get "reservations/show"
+  get "reservations/new"
+  get "reservations/edit"
+  resources :restaurants do
+    resources :reservations
+  end
+  resources :users  do
+    resources :reservations
+  end
   root to: "welcome#index"
 end
 
